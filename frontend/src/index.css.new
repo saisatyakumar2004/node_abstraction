@@ -1,0 +1,239 @@
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f1117;
+  color: #f8fafc;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, .toolbar-node:focus-visible {
+  outline: 2px solid #6c63ff;
+  outline-offset: 2px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #121624 0%, #0f1117 100%);
+}
+
+.top-bar {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 17, 23, 0.96);
+}
+
+.top-bar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.brand-logo {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: #6c63ff;
+  font-weight: 700;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.brand-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(108, 99, 255, 0.2);
+  color: #a59bff;
+  font-size: 0.8rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(15, 17, 23, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.toolbar-node {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  background: #1b2130;
+  color: #f8fafc;
+  padding: 0.7rem 0.95rem;
+  cursor: pointer;
+}
+
+.canvas-wrapper {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: rgba(15, 17, 23, 0.95);
+}
+
+.empty-state {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  text-align: center;
+  color: #94a3b8;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+.submit-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem 1.25rem;
+  background: rgba(15, 17, 23, 0.95);
+}
+
+.submit-panel button {
+  border: none;
+  border-radius: 0.75rem;
+  background: #6c63ff;
+  color: white;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+
+.base-node {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  background: #1a2032;
+  color: #f8fafc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.base-node.selected {
+  border-color: var(--node-accent);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.node-title {
+  font-weight: 600;
+}
+
+.node-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.9rem;
+}
+
+.node-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.node-field input,
+.node-field textarea,
+.node-field select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.6rem;
+  background: #121726;
+  color: #f8fafc;
+  padding: 0.6rem 0.7rem;
+}
+
+.node-vars-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.node-vars-hint code {
+  margin-left: 0.25rem;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.3rem;
+  background: rgba(108, 99, 255, 0.2);
+}
+
+.handle-label {
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  background: rgba(15, 17, 23, 0.9);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+  pointer-events: none;
+}
+
+.handle-label-left {
+  left: 0.35rem;
+}
+
+.handle-label-right {
+  right: 0.35rem;
+}
+
+.react-flow__controls,
+.react-flow__minimap {
+  background: rgba(18, 23, 38, 0.9);
+}
+
+@media (max-width: 900px) {
+  .toolbar {
+    justify-content: center;
+  }
+
+  .submit-panel {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 0.9rem 1rem;
+  }
+
+  .toolbar {
+    padding: 0.8rem 0.9rem;
+  }
+
+  .toolbar-node {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+  .submit-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
